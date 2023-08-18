@@ -15,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @Entity
 @Table(schema = SchemaConstants.PGAPIASSEMBLEIA, name = "TB_SESSAO")
-public class Sessao extends AbstractDominioEntity {
+public class Sessao extends AbstractDominioEntity<Long> {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PAUTA", referencedColumnName = "ID")
