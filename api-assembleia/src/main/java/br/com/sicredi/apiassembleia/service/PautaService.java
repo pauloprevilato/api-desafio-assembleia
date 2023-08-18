@@ -7,7 +7,10 @@ import br.com.sicredi.apiassembleia.vo.PautaVO;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -39,11 +42,10 @@ public class PautaService {
 
     public Pauta pautaBuilder() {
         return Pauta.builder() //
-            .pautaDescricao("Iniciando carga de Pauta ") //
-            .pautaNumero(10) //
-            .status(StatusEnum.ATIVO) //
-            .build();
+                .pautaDescricao("Iniciando carga de Pauta ") //
+                .pautaNumero(10) //
+                .status(StatusEnum.ATIVO) //
+                .build();
 
     }
-
 }
