@@ -13,7 +13,7 @@ import org.springframework.context.support.MessageSourceAccessor;
 @Getter
 public class Message {
 
-    public static final String BASE_NAME = "br.com.api-assembleia";
+    public static final String BASE_NAME = "br.com.sicredi.apiassembleia";
 
     private MessageSource source;
 

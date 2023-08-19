@@ -2,6 +2,7 @@ package br.com.sicredi.apiassembleia.controller;
 
 import br.com.sicredi.apiassembleia.domain.entity.Pauta;
 import br.com.sicredi.apiassembleia.dto.PautaDTO;
+import br.com.sicredi.apiassembleia.exceptions.BusinessException;
 import br.com.sicredi.apiassembleia.exceptions.ObjectNotFoundException;
 import br.com.sicredi.apiassembleia.repository.PautaRepository;
 import br.com.sicredi.apiassembleia.service.PautaService;
@@ -38,10 +39,13 @@ public class PautaController {
         return pautaService.cadastrar(vo);
     }
 
+
+
     @GetMapping(value = "/consultar-pauta")
     @ResponseStatus(HttpStatus.OK)
-    public Page<PautaDTO> listar(@PageableDefault(size = 5, sort = {"pautaNumero"}) Pageable paginacao) {
-        return pautaRepository.findAll(paginacao).map(PautaDTO::new);
+    public Page<PautaDTO> findAllPagination(@PageableDefault(size = 5, sort = {"pautaNumero"}) Pageable pageable)
+            throws BusinessException {
+                return pautaService.findAllPagable(pageable);
     }
 
     @GetMapping(value = "/consultar-pauta/{id}")

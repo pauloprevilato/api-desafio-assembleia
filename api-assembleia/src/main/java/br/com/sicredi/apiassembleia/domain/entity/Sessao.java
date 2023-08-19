@@ -21,10 +21,16 @@ public class Sessao extends AbstractDominioEntity<Long> {
     @JoinColumn(name = "ID_PAUTA", referencedColumnName = "ID")
     private Pauta pauta;
 
+    @Column(name = "SESSAO_NUMERO")
+    private int numero;
+
     @Column(name = "SESSAO_DATA_INICIAL")
     private Date data;
     
     @Column(name = "SESSAO_TEMPO")
     private int tempo;
+
+    @Column(name = "SESSAO_TITULO")
+    private String titulo;
 
 }

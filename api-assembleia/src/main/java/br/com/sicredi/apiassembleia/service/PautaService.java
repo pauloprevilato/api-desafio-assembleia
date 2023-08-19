@@ -2,15 +2,15 @@ package br.com.sicredi.apiassembleia.service;
 
 import br.com.sicredi.apiassembleia.domain.entity.Pauta;
 import br.com.sicredi.apiassembleia.domain.enumeration.StatusEnum;
+import br.com.sicredi.apiassembleia.dto.PautaDTO;
 import br.com.sicredi.apiassembleia.repository.PautaRepository;
 import br.com.sicredi.apiassembleia.vo.PautaVO;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Slf4j
 @Service
@@ -38,6 +38,10 @@ public class PautaService {
 
         log.info("Pauta cadastrada com sucesso.");
         return pauta.getId();
+    }
+
+    public Page<PautaDTO> findAllPagable(final Pageable pageable) {
+        return pautaRepository.findAllPagable(pageable);
     }
 
     public Pauta pautaBuilder() {
