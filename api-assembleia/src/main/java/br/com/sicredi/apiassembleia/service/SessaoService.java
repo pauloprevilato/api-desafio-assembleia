@@ -15,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Objects;
 
 @Slf4j
@@ -43,6 +44,8 @@ public class SessaoService {
         validateIniciar(vo);
         Sessao sessao = modelMapper.map(vo, Sessao.class);
         sessao.setStatus(StatusEnum.ATIVO);
+        sessao.setTempo(1);
+        sessao.setData(new Date());
         sessao = sessaoRepository.save(sessao);
 
         log.info("Sessao iniciada com sucesso.");

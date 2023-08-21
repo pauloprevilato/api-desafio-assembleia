@@ -20,13 +20,13 @@ public class SessaoController {
     @Autowired
     SessaoService sessaoService;
 
-    @PostMapping(value = "/iniciar-sessao")
+    @PostMapping(value = "/iniciar")
     @ResponseStatus(HttpStatus.CREATED)
     public Long iniciar(@RequestBody SessaoVO vo) throws BusinessException {
         return sessaoService.iniciar(vo);
     }
 
-    @GetMapping(value = "/consultar-sessao")
+    @GetMapping(value = "/consultar")
     @ResponseStatus(HttpStatus.OK)
     public Page<SessaoDTO> findByIdSessaoPagination(@Valid FiltroSessaoVO vo,
             final Pageable pageable) throws BusinessException {

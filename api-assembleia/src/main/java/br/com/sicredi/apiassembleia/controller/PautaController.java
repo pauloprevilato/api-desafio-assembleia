@@ -33,7 +33,7 @@ public class PautaController {
         pautaService.cargaPauta();
     }
 
-    @PostMapping(value = "/cadastrar-pauta")
+    @PostMapping(value = "/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
     public Long cadastrar(@RequestBody PautaVO vo) {
         return pautaService.cadastrar(vo);
@@ -41,14 +41,14 @@ public class PautaController {
 
 
 
-    @GetMapping(value = "/consultar-pauta")
+    @GetMapping(value = "/consultar")
     @ResponseStatus(HttpStatus.OK)
     public Page<PautaDTO> findAllPagination(@PageableDefault(size = 5, sort = {"pautaNumero"}) Pageable pageable)
             throws BusinessException {
                 return pautaService.findAllPagable(pageable);
     }
 
-    @GetMapping(value = "/consultar-pauta/{id}")
+    @GetMapping(value = "/consultar/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Pauta findById  (@PathVariable(value = "id") Long id) {
         Optional<Pauta> obj = pautaRepository.findById(id);
