@@ -1,17 +1,12 @@
 package br.com.sicredi.apiassembleia.controller;
 
-import br.com.sicredi.apiassembleia.domain.entity.Associado;
 import br.com.sicredi.apiassembleia.dto.AssociadoDTO;
-import br.com.sicredi.apiassembleia.dto.PautaDTO;
 import br.com.sicredi.apiassembleia.exceptions.BusinessException;
 import br.com.sicredi.apiassembleia.service.AssociadoService;
 import br.com.sicredi.apiassembleia.vo.AssociadoVO;
-import br.com.sicredi.apiassembleia.vo.PautaVO;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
